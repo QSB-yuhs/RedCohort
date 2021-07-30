@@ -1,7 +1,5 @@
 library(redCohort)
 
-#usethis::edit_r_environ()
-
 # Maximum number of cores to be used:
 maxCores <- parallel::detectCores() 
 
@@ -11,12 +9,12 @@ outputFolder <- "c:/REDCDM"
 # Details for connecting to the server:
 connectionDetails <-
         DatabaseConnector::createConnectionDetails(
-                dbms = Sys.getenv("usethis_dbms"),
-                server = Sys.getenv("usethis_server"),
-                user = Sys.getenv("usethis_user"),
-                password = Sys.getenv("usethis_password"),
-                port = Sys.getenv("usethis_port"),
-                #pathToDriver=Sys.getenv("usethis_jdbc")
+                dbms = "",
+                server = "",
+                user = "",
+                password = "",
+                port = ""
+                #,pathToDriver = ""
                 )
 
 # The name of the database schema where the CDM data can be found:
@@ -44,10 +42,24 @@ redCohort::execute(
         databaseId = databaseId,
         databaseName = databaseName,
         databaseDescription = databaseDescription,
+        minCellCount = 1
         
 )
 
 CohortDiagnostics::preMergeDiagnosticsFiles(dataFolder = outputFolder)
+#shared file: c:/REDCDM/diagnosticsExport/Results_REDCDM.zip
 
 CohortDiagnostics::launchDiagnosticsExplorer(dataFolder = outputFolder)
+
+
+
+
+#----------------------------------------
+#usethis::edit_r_environ()
+#dbms_user <- Sys.getenv("usethis_dbms")
+#server_user <- Sys.getenv("usethis_server")
+#user_user <- Sys.getenv("usethis_user")
+#password_user <- Sys.getenv("usethis_password")
+#port_user <- Sys.getenv("usethis_port")
+##pathToDriver_user <- Sys.getenv("usethis_jdbc")
 
