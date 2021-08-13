@@ -63,3 +63,5 @@ CohortDiagnostics::launchDiagnosticsExplorer(dataFolder = outputFolder)
 #port_user <- Sys.getenv("usethis_port")
 ##pathToDriver_user <- Sys.getenv("usethis_jdbc")
 
+find("execute")
+

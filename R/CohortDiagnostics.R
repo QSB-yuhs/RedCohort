@@ -67,7 +67,7 @@ execute <- function(connectionDetails,
                     databaseId = "Unknown",
                     databaseName = databaseId,
                     databaseDescription = databaseId,
-                    minCellCount = 5) {
+                    minCellCount = minCellCount) {
   if (!file.exists(outputFolder))
     dir.create(outputFolder, recursive = TRUE)
   
